@@ -1,0 +1,16 @@
+{
+  "name": "instead-annotation-spec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+     "start": "node src/renderer.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  }
+}
