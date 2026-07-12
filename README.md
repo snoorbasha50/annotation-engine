@@ -161,6 +161,19 @@ Contains:
 
 ---
 
+
+# Output Preview
+
+## Original IRS Form
+
+![Original IRS Form](screenshots/original-form.png)
+
+---
+
+## Generated PDF
+
+![Generated PDF](screenshots/generated-form.png)
+
 # Technologies Used
 
 - Node.js
