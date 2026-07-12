@@ -1,37 +1,61 @@
-# Problem Understanding
+# Future Enhancements
 
-## Background
+The current implementation demonstrates the core annotation engine and rendering pipeline. The architecture is intentionally designed to support future enhancements without significant changes to the rendering engine.
 
-Instead is building a platform that helps taxpayers and tax professionals prepare and manage U.S. tax returns. Taxpayer information such as personal details, income, deductions, and dependents is typically stored as structured data in databases or JSON documents.
+## 1. Visual Annotation Editor
 
-However, the IRS requires tax returns to be submitted using predefined PDF forms such as Form 1040. These forms contain hundreds of fields positioned at fixed locations across multiple pages.
+Develop a web-based editor that allows users to upload a PDF, click on fields, and automatically generate annotation coordinates. This removes the need to manually edit the annotation specification.
 
-## Problem
+---
 
-The challenge is to accurately transfer values from structured taxpayer data into the correct fields on an IRS tax form.
+## 2. Automatic Coordinate Detection
 
-Hardcoding field positions directly into application code is difficult to maintain because:
+Use OCR or computer vision techniques to identify printable fields and generate annotation metadata automatically.
 
-- IRS forms change every tax year.
-- Different forms have different layouts.
-- A single application must support multiple forms and versions.
-- Taxpayer data is deeply nested and often contains arrays (multiple W-2s, dependents, bank accounts, etc.).
+---
 
-Updating application code every time a form changes would make the system difficult to maintain and extend.
+## 3. Full JSONPath Support
 
-## Objective
+Extend the resolver to support wildcard expressions, filters, and advanced JSONPath features for more flexible data mapping.
 
-The objective of this project is to design a reusable annotation specification that acts as a contract between taxpayer data and a PDF rendering engine.
+---
 
-Instead of embedding coordinates and rendering logic in the application, all field-related information is stored in a configuration-driven annotation schema.
+## 4. Aggregation Functions
 
-The annotation specification defines:
+Support functions such as `sum()`, `count()`, and `average()` to populate fields that require aggregated values from multiple records.
 
-- Where a field exists on the PDF.
-- Which value should be printed.
-- How the value should be formatted.
-- When the value should be printed.
+---
 
-Using this approach, supporting a new IRS form or a new tax year only requires creating or updating an annotation specification, while the rendering engine remains unchanged.
+## 5. Automatic Font Scaling
 
-This design makes the system reusable, scalable, and easy to maintain.
+Automatically adjust the font size when a value exceeds the available field width to prevent text overflow.
+
+---
+
+## 6. Checkbox and Radio Button Support
+
+Extend the renderer to support non-text elements such as checkboxes and radio buttons commonly found in IRS forms.
+
+---
+
+## 7. Image and Signature Rendering
+
+Support rendering images such as signatures, company logos, QR codes, and barcodes.
+
+---
+
+## 8. Annotation Validation
+
+Validate annotation files before rendering by checking coordinates, page numbers, supported format types, and data references.
+
+---
+
+## 9. Support for Multiple IRS Forms
+
+Reuse the same rendering engine to support additional IRS forms such as Schedule A, Schedule C, W-2, and 1099 by creating new annotation specifications.
+
+---
+
+## 10. Annotation Versioning
+
+Support multiple versions of annotation specifications to accommodate yearly IRS form changes while maintaining backward compatibility.
