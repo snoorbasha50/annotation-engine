@@ -200,7 +200,4 @@ See **docs/05-Future-Enhancements.md** for more details.
 
 ---
 
-# Author
-
-**Noorbasha Shaik**
 
