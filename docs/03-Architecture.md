@@ -11,22 +11,25 @@ Instead of tightly coupling data extraction, formatting, and rendering, the solu
 # High-Level Architecture
 
 ```
-                Taxpayer JSON
+                               Taxpayer Data
+             (Database / JSON)
                       │
-                      ▼
-            Annotation Specification
-                      │
-                      ▼
-                  Resolver
-                      │
-                      ▼
-                 Formatter
                       │
                       ▼
              Annotation Engine
+              ▲             │
+              │             │
+              │             ▼
+     Annotation Specification
+          (JSON Schema)
                       │
+          ┌───────────┴───────────┐
+          ▼                       ▼
+     Resolver Module       Formatter Module
+          │                       │
+          └───────────┬───────────┘
                       ▼
-                 PDF Renderer
+                PDF Renderer
                       │
                       ▼
                Generated PDF
