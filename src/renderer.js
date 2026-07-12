@@ -62,7 +62,7 @@ console.log(page.getHeight());
         pdfBytesOut
     );
 
-    console.log("✅ PDF Generated Successfully!");
+    console.log("PDF Generated Successfully!");
 }
 
 renderPDF();
