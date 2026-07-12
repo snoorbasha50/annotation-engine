@@ -1,0 +1,92 @@
+{
+  "taxpayer": {
+    "firstName": "John",
+    "middleName": "A",
+    "lastName": "Doe",
+    "dateOfBirth": "1988-05-12",
+    "ssn": "123-45-6789",
+    "filingStatus": "Married Filing Jointly",
+
+    "address": {
+      "street": "123 Main Street",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10001",
+      "country": "USA"
+    }
+  },
+
+  "spouse": {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "ssn": "987-65-4321"
+  },
+
+  "income": {
+    "w2Forms": [
+      {
+        "employer": {
+          "name": "Google",
+          "ein": "12-3456789"
+        },
+        "wages": 85000,
+        "federalTaxWithheld": 12500
+      },
+      {
+        "employer": {
+          "name": "Amazon",
+          "ein": "98-7654321"
+        },
+        "wages": 15000,
+        "federalTaxWithheld": 1800
+      }
+    ],
+
+    "interest": [
+      {
+        "bank": "Chase",
+        "amount": 350
+      },
+      {
+        "bank": "Bank of America",
+        "amount": 120
+      }
+    ],
+
+    "dividends": [
+      {
+        "company": "Apple",
+        "amount": 250
+      }
+    ]
+  },
+
+  "deductions": {
+    "standardDeduction": 29200,
+    "charity": 500,
+    "mortgageInterest": 4200
+  },
+
+  "dependents": [
+    {
+      "firstName": "Emma",
+      "lastName": "Doe",
+      "relationship": "Daughter",
+      "dateOfBirth": "2015-06-20",
+      "ssn": "555-11-2222"
+    },
+    {
+      "firstName": "Liam",
+      "lastName": "Doe",
+      "relationship": "Son",
+      "dateOfBirth": "2018-09-15",
+      "ssn": "555-33-4444"
+    }
+  ],
+
+  "bankAccount": {
+    "routingNumber": "021000021",
+    "accountNumber": "1234567890",
+    "accountType": "Checking"
+  }
+}

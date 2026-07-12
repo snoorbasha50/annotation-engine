@@ -1,0 +1,320 @@
+{
+  "schemaVersion": "1.0",
+
+  "form": {
+    "formId": "1040",
+    "taxYear": "2025",
+    "pageCount": 2
+  },
+
+  "defaults": {
+    "font": {
+      "family": "Helvetica",
+      "size": 10,
+      "color": "#000000"
+    },
+    "unit": "pt"
+  },
+
+  "fields": [
+    {
+      "id": "taxpayer_first_name",
+
+      "label": "Taxpayer First Name",
+
+      "position": {
+        "page": 1,
+        "x": 120,
+        "y": 685,
+        "width": 120,
+        "height": 18
+      },
+
+      "binding": {
+        "dataRef": "$.taxpayer.firstName"
+      },
+
+      "style": {
+        "alignment": "left"
+      },
+
+      "format": {
+        "type": "text"
+      },
+
+      "behavior": {
+        "printIf": "value != null"
+      }
+    },
+
+    {
+      "id": "taxpayer_last_name",
+
+      "label": "Taxpayer Last Name",
+
+      "position": {
+        "page": 1,
+        "x": 250,
+        "y": 685,
+        "width": 120,
+        "height": 18
+      },
+
+      "binding": {
+        "dataRef": "$.taxpayer.lastName"
+      },
+
+      "style": {
+        "alignment": "left"
+      },
+
+      "format": {
+        "type": "text"
+      },
+
+      "behavior": {
+        "printIf": "value != null"
+      }
+    },
+
+    {
+      "id": "taxpayer_ssn",
+
+      "label": "Social Security Number",
+
+      "position": {
+        "page": 1,
+        "x": 470,
+        "y": 685,
+        "width": 100,
+        "height": 18
+      },
+
+      "binding": {
+        "dataRef": "$.taxpayer.ssn"
+      },
+
+      "style": {
+        "alignment": "left"
+      },
+
+      "format": {
+        "type": "ssn"
+      },
+
+      "behavior": {
+        "printIf": "value != null"
+      }
+    },
+
+    {
+      "id": "street_address",
+
+      "label": "Street Address",
+
+      "position": {
+        "page": 1,
+        "x": 120,
+        "y": 640,
+        "width": 250,
+        "height": 18
+      },
+
+      "binding": {
+        "dataRef": "$.taxpayer.address.street"
+      },
+
+      "style": {
+        "alignment": "left"
+      },
+
+      "format": {
+        "type": "text"
+      },
+
+      "behavior": {
+        "printIf": "value != null"
+      }
+    },
+
+    {
+      "id": "city",
+
+      "label": "City",
+
+      "position": {
+        "page": 1,
+        "x": 120,
+        "y": 620,
+        "width": 120,
+        "height": 18
+      },
+
+      "binding": {
+        "dataRef": "$.taxpayer.address.city"
+      },
+
+      "style": {
+        "alignment": "left"
+      },
+
+      "format": {
+        "type": "text"
+      },
+
+      "behavior": {
+        "printIf": "value != null"
+      }
+    },
+
+    {
+      "id": "state",
+
+      "label": "State",
+
+      "position": {
+        "page": 1,
+        "x": 260,
+        "y": 620,
+        "width": 40,
+        "height": 18
+      },
+
+      "binding": {
+        "dataRef": "$.taxpayer.address.state"
+      },
+
+      "style": {
+        "alignment": "center"
+      },
+
+      "format": {
+        "type": "text"
+      },
+
+      "behavior": {
+        "printIf": "value != null"
+      }
+    },
+
+    {
+      "id": "zip_code",
+
+      "label": "ZIP Code",
+
+      "position": {
+        "page": 1,
+        "x": 320,
+        "y": 620,
+        "width": 70,
+        "height": 18
+      },
+
+      "binding": {
+        "dataRef": "$.taxpayer.address.zip"
+      },
+
+      "style": {
+        "alignment": "center"
+      },
+
+      "format": {
+        "type": "text"
+      },
+
+      "behavior": {
+        "printIf": "value != null"
+      }
+    },
+
+    {
+      "id": "total_wages",
+
+      "label": "Total Wages",
+
+      "position": {
+        "page": 1,
+        "x": 470,
+        "y": 510,
+        "width": 90,
+        "height": 18
+      },
+
+      "binding": {
+        "dataRef": "$.income.w2Forms[0].wages"
+      },
+
+      "style": {
+        "alignment": "right"
+      },
+
+      "format": {
+        "type": "currency"
+      },
+
+      "behavior": {
+        "printIf": "value > 0"
+      }
+    },
+
+    {
+      "id": "interest_income",
+
+      "label": "Interest Income",
+
+      "position": {
+        "page": 1,
+        "x": 470,
+        "y": 485,
+        "width": 90,
+        "height": 18
+      },
+
+      "binding": {
+        "dataRef": "$.income.interest[0].amount"
+      },
+
+      "style": {
+        "alignment": "right"
+      },
+
+      "format": {
+        "type": "currency"
+      },
+
+      "behavior": {
+        "printIf": "value > 0"
+      }
+    },
+
+    {
+      "id": "dependent_1_name",
+
+      "label": "Dependent 1 Name",
+
+      "position": {
+        "page": 1,
+        "x": 170,
+        "y": 300,
+        "width": 180,
+        "height": 18
+      },
+
+      "binding": {
+        "dataRef": "$.dependents[0].firstName"
+      },
+
+      "style": {
+        "alignment": "left"
+      },
+
+      "format": {
+        "type": "text"
+      },
+
+      "behavior": {
+        "printIf": "value != null"
+      }
+    }
+  ]
+}
