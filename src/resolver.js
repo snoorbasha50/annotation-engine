@@ -6,15 +6,12 @@ function resolve(data, path) {
   console.log("Normalized path:", normalizedPath);
 
   // Convert array indexes to dot notation
-  // Example:
-  // income.w2Forms[0].wages
-  // becomes
-  // income.w2Forms.0.wages
+  
   const keys = normalizedPath
     .replace(/\[(\d+)\]/g, ".$1")
     .split(".");
 
-console.log("Keys:", keys);
+
 
   let current = data;
 

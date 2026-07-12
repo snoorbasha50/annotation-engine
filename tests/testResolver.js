@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const { resolve } = require("./resolver");
+const { resolve } = require("../src/resolver");
 
 const taxpayer = JSON.parse(
   fs.readFileSync(

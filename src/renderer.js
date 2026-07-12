@@ -1,40 +1,68 @@
-const { PDFDocument, StandardFonts, rgb } = require("pdf-lib");
 const fs = require("fs");
 const path = require("path");
+const { PDFDocument, StandardFonts, rgb } = require("pdf-lib");
 
-async function render() {
-  // Read PDF
-  const pdfBytes = fs.readFileSync(
-    path.join(__dirname, "../forms/f1040.pdf")
-  );
+const { processAnnotations } = require("./annotationEngine");
 
-  // Load PDF
-  const pdfDoc = await PDFDocument.load(pdfBytes);
+async function renderPDF() {
 
-  // Get first page
-  const page = pdfDoc.getPages()[0];
+    // Load original PDF
+    const pdfBytes = fs.readFileSync(
+        path.join(__dirname, "../forms/f1040.pdf")
+    );
 
-  // Embed font
-  const font = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+    const pdfDoc = await PDFDocument.load(pdfBytes);
 
-  // Draw text
-  page.drawText("Hello World", {
-    x: 200,
-    y: 700,
-    size: 14,
-    font,
-    color: rgb(1, 0, 0),
-  });
+    const pages = pdfDoc.getPages();
 
-  // Save
-  const pdfBytesModified = await pdfDoc.save();
 
-  fs.writeFileSync(
-    path.join(__dirname, "../output/output.pdf"),
-    pdfBytesModified
-  );
+    // Load processed annotations
+    const annotations = processAnnotations();
 
-  console.log("✅ PDF Generated!");
+    // Embed font
+    const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+
+    // Loop through every annotation
+    for (const field of annotations) {
+      console.log(
+  field.id,
+  field.position.page,
+  field.position.x,
+  field.position.y,
+  field.formattedValue
+);
+
+        const page = pages[field.position.page - 1];
+        console.log(page.getWidth());
+console.log(page.getHeight());
+
+        const fontSize =
+    field.format.type === "currency" ? 8 : 10;
+
+        page.drawText(field.formattedValue, {
+
+            x: field.position.x,
+
+            y: field.position.y,
+
+            size: fontSize || field.style.fontSize || schema.defaults.font.size,
+
+            font,
+
+            color: rgb(0, 0, 0)
+
+        });
+
+    }
+
+    const pdfBytesOut = await pdfDoc.save();
+
+    fs.writeFileSync(
+        path.join(__dirname, "../output/output.pdf"),
+        pdfBytesOut
+    );
+
+    console.log("✅ PDF Generated Successfully!");
 }
 
-render();
+renderPDF();
